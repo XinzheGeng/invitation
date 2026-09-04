@@ -348,7 +348,11 @@ function GalleryPanel() {
           <span>左右滑动查看 →</span>
         </figcaption>
       </figure>
-      <p className="gallery-quote">镜头里总有丰收</p>
+      <p className="gallery-quote">
+        <span aria-hidden="true">“</span>
+        镜头里总有丰收
+        <span aria-hidden="true">”</span>
+      </p>
     </div>
   );
 }
@@ -517,17 +521,6 @@ function WeekendPlaceCard({ place }: { place: WeekendPlace }) {
 }
 
 function WeekendPanel() {
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(`weekend-${id}`);
-    const reduceMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches;
-    section?.scrollIntoView({
-      behavior: reduceMotion ? 'auto' : 'smooth',
-      block: 'start',
-    });
-  };
-
   return (
     <div className="weekend-panel">
       <figure className="weekend-hero">
@@ -537,19 +530,6 @@ function WeekendPanel() {
         />
         <figcaption>WEEKEND NOTES</figcaption>
       </figure>
-      <nav className="weekend-category-nav" aria-label="周边推荐分类">
-        {WEEKEND_SECTIONS.map((section) => (
-          <button
-            type="button"
-            key={section.id}
-            aria-controls={`weekend-${section.id}`}
-            onClick={() => scrollToSection(section.id)}
-          >
-            <strong>{section.label}</strong>
-            <span>{section.subtitle}</span>
-          </button>
-        ))}
-      </nav>
       <div className="weekend-sections">
         {WEEKEND_SECTIONS.map((section, index) => (
           <section
@@ -560,11 +540,7 @@ function WeekendPanel() {
           >
             <header>
               <span>{String(index + 1).padStart(2, '0')}</span>
-              <div>
-                <p>{section.subtitle}</p>
-                <h2 id={`weekend-heading-${section.id}`}>{section.label}</h2>
-              </div>
-              <em>{section.expectedCount} PLACES</em>
+              <h2 id={`weekend-heading-${section.id}`}>{section.label}</h2>
             </header>
             {section.places.length > 0 && (
               <div className="weekend-place-list">

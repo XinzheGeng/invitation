@@ -41,7 +41,7 @@ export const ENTRIES: ReadonlyArray<{
   {
     id: 'story',
     number: '01',
-    title: '沿途有你',
+    title: '来路偕行',
     subtitle: '我们的故事',
     note: '从相遇，到并肩走向今天',
     image: '/assets/placeholders/nav-story.svg',
@@ -50,7 +50,7 @@ export const ENTRIES: ReadonlyArray<{
   {
     id: 'gallery',
     number: '02',
-    title: '光影成册',
+    title: '菲林拾光',
     subtitle: '旅途与成婚',
     note: '把喜欢的时刻，装订成册',
     image: '/assets/placeholders/nav-gallery.svg',
@@ -152,23 +152,17 @@ export const VENUE_PHOTOS: readonly PhotoItem[] = [1, 2, 3].map((number) => ({
 export const WEEKEND_SECTIONS: ReadonlyArray<{
   id: WeekendCategory;
   label: string;
-  subtitle: string;
-  expectedCount: number;
   places: readonly WeekendPlace[];
 }> = [
   {
     id: 'sightseeing',
-    label: '看城',
-    subtitle: '景点',
-    expectedCount: 3,
+    label: '一瞥',
     places: [],
   },
   {
     id: 'shopping',
-    label: '闲逛',
-    subtitle: '商业',
-    expectedCount: 2,
+    label: '拾趣',
     places: [],
   },
-  { id: 'food', label: '寻味', subtitle: '美食', expectedCount: 3, places: [] },
+  { id: 'food', label: '寻味', places: [] },
 ];
