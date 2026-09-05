@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   title: WEDDING.title,
   description: '互动婚礼请柬视觉原型',
   icons: {
-    icon: '/favicon.svg',
+    icon: { url: '/favicon.svg', type: 'image/svg+xml' },
+    apple: '/icon-large.png',
   },
 };
 
